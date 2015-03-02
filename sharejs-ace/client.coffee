@@ -13,6 +13,8 @@ class ShareJSAceConnector extends ShareJSConnector
     @configCallback?(@ace)
 
   connect: ->
+    console.log "connect"
+    console.log @ace
     @ace.setReadOnly(true); # Disable editing until share is connected
     super
 

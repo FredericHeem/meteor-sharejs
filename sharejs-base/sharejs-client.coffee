@@ -7,7 +7,6 @@ class ShareJSConnector
   constructor: (parentView) ->
     # Create a ReactiveVar that tracks the docId that was passed in
     docIdVar = new Blaze.ReactiveVar
-
     parentView.onViewReady ->
       this.autorun ->
         data = Blaze.getData()
@@ -51,19 +50,11 @@ class ShareJSConnector
   # Connect to a document.
   connect: (docId, element) ->
     @connectingId = docId
-
-    sharejs.open docId, 'text', getOptions(), (error, doc) =>
-      if error
-        Meteor._debug(error)
-        return
-
-      # Don't attach if re-render happens too quickly and we're trying to
-      # connect to a different document now.
-      unless @connectingId is doc.name
-        doc.close() # Close immediately
-      else
-        @attach(doc)
-
+    console.log "connect ace"
+    socket = new BCSocket(null, reconnect: true)
+    share = new (sharejs.Connection)(socket)
+    sjs = new window.sharejs.Connection(share)
+    
   # Attach shareJS to the on-screen editor
   attach: (doc) ->
     @doc = doc

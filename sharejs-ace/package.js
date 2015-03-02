@@ -39,7 +39,6 @@ function getFilesFromFolder(packageName, folder){
 
   var isRunningFromApp = fs.existsSync(path.resolve("packages"));
   var packagePath = isRunningFromApp ? path.resolve("packages", packageName) : "";
-
   packagePath = path.resolve(packagePath);
   // chdir to our package directory
   process.chdir(path.join(packagePath));
@@ -65,7 +64,7 @@ Package.onUse(function (api) {
   api.addFiles(aceJS, 'client', { bare: true });
 
   // Add Ace files as assets that can be loaded by the client later
-  var aceSettings = getFilesFromFolder("mizzao:sharejs-ace", "ace-builds/src");
+  var aceSettings = getFilesFromFolder("sharejs-ace", "ace-builds/src");
   api.addFiles(_.without(aceSettings, aceJS), 'client', {isAsset: true});
 
   api.addFiles([
