@@ -21,7 +21,7 @@ Package.onUse(function (api) {
   // ShareJS script files
   api.addFiles([
       '.npm/package/node_modules/browserchannel/dist/bcsocket.js',
-      '.npm/package/node_modules/share/webclient/share.js'
+      '.npm/package/node_modules/share/webclient/share.uncompressed.js'
   ], 'client');
 
   
@@ -34,7 +34,7 @@ Package.onUse(function (api) {
   // Our files
   api.addFiles([
       'sharejs-templates.html',
-      'sharejs-client.coffee'
+      'sharejs-client.js'
   ], 'client');
 
   // Server files
