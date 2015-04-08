@@ -1,18 +1,19 @@
 Package.describe({
   name: "mizzao:sharejs",
   summary: "server (& client library) to allow concurrent editing of any kind of content",
-  version: "0.7.2",
+  version: "0.7.3",
   git: "https://github.com/mizzao/meteor-sharejs.git"
 });
 
 Npm.depends({
   livedb:"0.4.11",
   browserchannel:"2.0.0",
-  share: "0.7.10"
+  share:"0.7.27"
+  //share: "https://github.com/FredericHeem/ShareJS/tarball/683c24fabff7a817ada2d2bb480fef57b2bc36da"
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom("1.0");
+  api.versionsFrom("1.0.4");
 
   api.use(['coffeescript', 'underscore']);
   api.use(['handlebars', 'templating'], 'client');
